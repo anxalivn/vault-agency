@@ -8,7 +8,7 @@ export const site = {
   name: process.env.NEXT_PUBLIC_SITE_NAME || "Vault Agency",
   tagline: "Chat coverage, content, and growth — handled.",
   description:
-    "Woman-owned Fansly & OnlyFans management agency offering 18-hour chat coverage, video editing, FYP & wall posting, and social media growth for every creator.",
+    "Woman-owned Fansly & OnlyFans management agency offering 24-hour chat coverage, video editing, FYP & wall posting, and social media growth for every creator.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.vaultagency.com",
   calendlyUrl:
     process.env.NEXT_PUBLIC_CALENDLY_URL || DEFAULT_CALENDLY_URL,
@@ -52,19 +52,19 @@ export const services = [
     number: "01",
     title: "24/7 Chat Coverage",
     subtitle: "Fansly & OnlyFans",
-    description: "Trained chatters cover your inbox up to 18 hours a day.",
+    description: "Trained chatters cover your inbox 24 hours a day.",
   },
   {
     number: "02",
     title: "Video Editing",
     subtitle: "Content that sells",
-    description: "PPVs, teasers, and promos, cut to convert.",
+    description: "Full porn editing.",
   },
   {
     number: "03",
     title: "FYP & Wall Posting",
     subtitle: "Fansly & OnlyFans",
-    description: "Consistent, algorithm-aware posting on both platforms.",
+    description: "Keep your authenticity, your brand, your account yours.",
   },
   {
     number: "04",
@@ -98,7 +98,7 @@ export const processSteps = [
 ];
 
 export const stats = [
-  { value: 18, suffix: "h", label: "daily chat coverage" },
+  { value: 24, suffix: "h", label: "daily chat coverage" },
   { value: 100, suffix: "%", label: "woman-owned & operated" },
   { value: 24, suffix: "/7", label: "content pipeline" },
   { value: 0, suffix: "", label: "judgment, ever" },
@@ -107,13 +107,9 @@ export const stats = [
 // Desktop earnings screenshots, served from public/proofs. Set NEXT_PUBLIC_PROOF_IMAGE_1/2/3
 // to point at different images instead.
 export const proofs = [
-  { id: 1, caption: "Weekly payout", src: process.env.NEXT_PUBLIC_PROOF_IMAGE_1 || "/proofs/proof1.png" },
-  { id: 2, caption: "Monthly earnings", src: process.env.NEXT_PUBLIC_PROOF_IMAGE_2 || "/proofs/proof2.png" },
-  {
-    id: 3,
-    caption: "New model, first 30 days",
-    src: process.env.NEXT_PUBLIC_PROOF_IMAGE_3 || "/proofs/proof3.png",
-  },
+  { id: 1, src: process.env.NEXT_PUBLIC_PROOF_IMAGE_1 || "/proofs/proof1.png" },
+  { id: 2, src: process.env.NEXT_PUBLIC_PROOF_IMAGE_2 || "/proofs/proof2.png" },
+  { id: 3, src: process.env.NEXT_PUBLIC_PROOF_IMAGE_3 || "/proofs/proof3.png" },
 ];
 
 export const audiences = [

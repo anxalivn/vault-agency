@@ -100,7 +100,7 @@ export default function Hero() {
         className="mt-10 grid gap-8 px-6 md:mt-14 md:grid-cols-12 md:px-10"
       >
         <p className="max-w-xs text-lg text-bone/75 md:col-span-4 md:col-start-1 md:text-xl">
-          18-hour chat coverage, editing, and growth — for every creator.
+          24-hour chat coverage, editing, and growth — for every creator.
         </p>
 
         <div className="flex flex-col items-start gap-5 md:col-span-6 md:col-start-7 md:flex-row md:items-center md:gap-8">
