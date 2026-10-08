@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --color-blush: #ffb3e7;
+  --color-blush-soft: #ffd6f2;
+  --color-blush-deep: #f588d8;
+  --color-ink: #000000;
+  --color-ink-soft: #0a0a0a;
+  --color-bone: #faf7f8;
+  --color-line: rgba(255, 255, 255, 0.12);
+}
+
+@theme inline {
+  --color-blush: var(--color-blush);
+  --color-blush-soft: var(--color-blush-soft);
+  --color-blush-deep: var(--color-blush-deep);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-bone: var(--color-bone);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-blush);
+  color: var(--color-ink);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blush-deep);
+  border-radius: 999px;
+  border: 2px solid var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom cursor: this class is toggled from CustomCursor.tsx only once it has confirmed
+   a fine pointer (and no reduced-motion preference) and actually mounted its replacement
+   — so the native cursor is never hidden without a replacement on screen. */
+.cursor-none-active {
+  cursor: none;
+}
+
+/* Split-text line clipping for reveal animations */
+.split-line {
+  overflow: hidden;
+  display: block;
+  /* room for descenders inside the mask without changing the layout */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+/* Noise texture overlay. Plain opacity (no mix-blend-mode) and its own compositor layer —
+   a blend mode here would force the browser to re-blend the full viewport against a moving
+   backdrop on every scroll frame, which is a real source of scroll jank. */
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.05;
+  transform: translateZ(0);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
