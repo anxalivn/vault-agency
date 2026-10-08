@@ -95,10 +95,10 @@ export default function StatsBand() {
           Honest and straightforward cut:
         </span>
         <span className="mt-2 block text-[20vw] font-medium leading-[0.85] tracking-[-0.05em] md:ml-[8vw] md:text-[13vw]">
-          40% lower
+          40%
         </span>
         <span className="mt-3 block text-3xl italic text-bone/80 md:ml-[30vw] md:text-5xl">
-          than 99% of the agencies.
+          lower than 99% of the agencies.
         </span>
       </p>
     </section>
