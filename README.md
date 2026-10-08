@@ -1,4 +1,4 @@
-# Vault Agency — Agency Landing Site
+# lexManages — Agency Landing Site
 
 Next.js (App Router) + TypeScript + Tailwind CSS landing page for a woman-owned Fansly/OnlyFans management agency, with GSAP + Framer Motion animations, a Calendly booking embed, and a Netlify deploy setup.
 

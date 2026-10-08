@@ -1,9 +1,10 @@
 import { site, business, services } from "@/lib/content";
 
-// Only emit values that were really configured. Placeholder phone numbers and bare
-// "https://instagram.com/" links in structured data are worse than leaving them out.
+// Instagram is the real, configured handle. The other socials fall back to bare homepages
+// ("https://x.com/"), which are worse than nothing in structured data, so only emit them
+// once they've been set.
 const configuredSocials = [
-  process.env.NEXT_PUBLIC_INSTAGRAM_URL && site.socials.instagram,
+  site.socials.instagram,
   process.env.NEXT_PUBLIC_TWITTER_URL && site.socials.twitter,
   process.env.NEXT_PUBLIC_TIKTOK_URL && site.socials.tiktok,
 ].filter(Boolean);
@@ -19,7 +20,7 @@ export default function JsonLd() {
       url: site.url,
       email: site.email,
       telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE || undefined,
-      logo: `${site.url}/logo/vault-logo-black.svg`,
+      logo: `${site.url}/logo/lexmanages-logo-black.svg`,
       image: `${site.url}/opengraph-image`,
       areaServed: business.areaServed,
       address: {

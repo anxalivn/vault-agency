@@ -9,7 +9,7 @@ export const contentType = "image/png";
 
 // Same composition as the site: one blush field, black type, the logo set large.
 export default async function Image() {
-  const svg = await readFile(path.join(process.cwd(), "public/logo/vault-logo-black.svg"));
+  const svg = await readFile(path.join(process.cwd(), "public/logo/lexmanages-logo-black.svg"));
   const logo = `data:image/svg+xml;base64,${svg.toString("base64")}`;
 
   return new ImageResponse(

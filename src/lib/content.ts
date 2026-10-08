@@ -5,18 +5,18 @@
 export const DEFAULT_CALENDLY_URL = "https://calendly.com/lexyrosesnow/30min";
 
 export const site = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || "Vault Agency",
+  name: process.env.NEXT_PUBLIC_SITE_NAME || "lexManages",
   tagline: "Chat coverage, content, and growth — handled.",
   description:
     "Woman-owned Fansly & OnlyFans management agency offering 24-hour chat coverage, video editing, FYP & wall posting, and social media growth for every creator.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.vaultagency.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.lexmanages.com",
   calendlyUrl:
     process.env.NEXT_PUBLIC_CALENDLY_URL || DEFAULT_CALENDLY_URL,
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@vaultagency.com",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@lexmanages.com",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+1-000-000-0000",
   responsePromise: "We reply within 24 hours.",
   socials: {
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/",
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/lexmanages/",
     twitter: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/",
     tiktok: process.env.NEXT_PUBLIC_TIKTOK_URL || "https://tiktok.com/",
   },
@@ -29,7 +29,7 @@ export const site = {
 // Leave streetAddress/postal fields blank if you operate fully remote — search engines accept
 // LocalBusiness schema without a street address as long as addressLocality/Country are present.
 export const business = {
-  legalName: "Vault Agency LLC", // TODO: replace with your real legal business name
+  legalName: "lexManages", // TODO: replace with your registered legal business name (e.g. add "LLC" if applicable)
   address: {
     streetAddress: "", // TODO
     addressLocality: "", // TODO: e.g. "Austin"

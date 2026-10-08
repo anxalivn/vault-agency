@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="mt-14 overflow-hidden px-4 md:mt-20 md:px-6">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/logo/vault-logo.svg"
+          src="/logo/lexmanages-logo.svg"
           alt={site.name}
           width={955}
           height={197}
