@@ -29,11 +29,11 @@ export default function Services() {
               <div className="relative md:col-span-6">
                 <span
                   aria-hidden="true"
-                  className="absolute -inset-x-[0.06em] inset-y-[0.12em] bg-blush transition-[clip-path] duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] [clip-path:inset(0_100%_0_0)] group-hover:[clip-path:inset(0_0_0_0)]"
+                  className="absolute -inset-x-[0.06em] inset-y-[0.12em] bg-blush transition-[clip-path] duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] [clip-path:inset(0_100%_0_0)] [@media(hover:hover)]:group-hover:[clip-path:inset(0_0_0_0)]"
                 />
                 <RevealText
                   as="h3"
-                  className="font-display relative text-[13vw] font-medium leading-[0.95] tracking-[-0.04em] transition-colors duration-200 group-hover:text-ink md:text-[6vw]"
+                  className="font-display relative text-[13vw] font-medium leading-[0.95] tracking-[-0.04em] transition-colors duration-200 [@media(hover:hover)]:group-hover:text-ink md:text-[6vw]"
                 >
                   {service.title}
                 </RevealText>

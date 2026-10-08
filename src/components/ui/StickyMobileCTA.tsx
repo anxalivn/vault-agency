@@ -35,17 +35,17 @@ export default function StickyMobileCTA() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ y: 80, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 80, opacity: 0 }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-x-0 bottom-0 z-40 md:hidden"
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed bottom-0 right-0 z-40 md:hidden"
         >
           <a
             href="#cta"
-            className="flex w-full items-center bg-blush px-6 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 text-sm font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ink"
+            className="block bg-blush pb-[max(1.25rem,env(safe-area-inset-bottom))] pl-7 pr-6 pt-5 text-sm font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ink"
           >
-            Book a Free Call
+            Book a Call
           </a>
         </motion.div>
       )}

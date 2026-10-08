@@ -20,8 +20,8 @@ export const site = {
     twitter: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/",
     tiktok: process.env.NEXT_PUBLIC_TIKTOK_URL || "https://tiktok.com/",
   },
-  // Founder/team photo shown in the About section. Leave unset to show the placeholder.
-  aboutImage: process.env.NEXT_PUBLIC_ABOUT_IMAGE || "",
+  // Founder photo shown in the About section (public/owner/owner.jpg). Override with the env var.
+  aboutImage: process.env.NEXT_PUBLIC_ABOUT_IMAGE || "/owner/owner.jpg",
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
 };
 

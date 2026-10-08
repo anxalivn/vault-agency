@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { navLinks, site } from "@/lib/content";
+import { getLenis } from "@/lib/lenis";
 
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blush focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
@@ -24,11 +25,25 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // While the menu is open the page behind it must not move: stop Lenis (wheel) and lock the
+  // root and body overflow (touch, which Lenis leaves native). Escape closes it.
   useEffect(() => {
     if (!open) return;
+    const lenis = getLenis();
+    lenis?.stop();
+    const root = document.documentElement;
+    const prevOverflow = root.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    root.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      root.style.overflow = prevOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+      lenis?.start();
+    };
   }, [open]);
 
   const show = !hidden || open;
@@ -91,7 +106,8 @@ export default function Navbar() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: reduced ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
             transition={{ duration: reduced ? 0 : 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-40 flex flex-col justify-end bg-ink px-6 pb-10 pt-28 md:hidden"
+            data-lenis-prevent
+            className="fixed inset-0 z-[45] flex flex-col justify-end overflow-y-auto overscroll-contain bg-ink px-6 pb-10 pt-28 md:hidden"
           >
             <nav aria-label="Mobile" className="flex flex-col">
               {navLinks.map((link, i) => (
@@ -105,12 +121,14 @@ export default function Navbar() {
                 </a>
               ))}
             </nav>
+            {/* The one blush moment in the menu: the booking link is a blush band, set at the
+                same display scale as the page links above it. */}
             <a
               href="#cta"
               onClick={() => setOpen(false)}
-              className={`mt-8 bg-blush px-6 py-5 text-sm font-semibold text-ink ${focusRing}`}
+              className={`font-display -mx-6 mt-6 bg-blush px-6 py-5 text-[11vw] font-medium italic leading-none tracking-[-0.03em] text-ink focus-visible:ring-inset focus-visible:ring-ink ${focusRing}`}
             >
-              Book a Call
+              Book a free call
             </a>
           </motion.div>
         )}

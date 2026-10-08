@@ -60,7 +60,8 @@ export default function Proofs() {
       triggerRef.current = ScrollTrigger.create({
         trigger: el,
         start: "top top",
-        end: () => `+=${Math.round(window.innerHeight * 0.75 * (n - 1)) + window.innerHeight * 0.25}`,
+        // Every receipt, the last one included, gets its own full slot of scrolling.
+        end: () => `+=${Math.round(window.innerHeight * 0.9 * n)}`,
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
