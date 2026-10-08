@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className="flex items-start justify-between px-6 py-6 md:px-10 md:py-8">
           <a href="#top" aria-label={`${site.name}, back to top`} className={`block rounded-sm ${focusRing}`} data-cursor-hover>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo/vault-logo.svg" alt="" width={990} height={205} className="h-6 w-auto md:h-7" />
+            <img src="/logo/vault-logo.svg" alt="" width={955} height={197} className="h-6 w-auto md:h-7" />
           </a>
 
           <nav aria-label="Primary" className="hidden items-baseline gap-9 pr-36 text-sm md:flex">

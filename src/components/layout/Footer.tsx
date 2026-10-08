@@ -46,8 +46,8 @@ export default function Footer() {
         <img
           src="/logo/vault-logo.svg"
           alt={site.name}
-          width={990}
-          height={205}
+          width={955}
+          height={197}
           className="block h-auto w-full translate-y-[6%] select-none"
         />
       </div>
