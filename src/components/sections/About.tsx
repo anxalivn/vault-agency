@@ -49,11 +49,7 @@ export default function About() {
             No judgment, no cookie-cutter scripts.
           </p>
 
-          <p className="font-display mt-10 text-2xl leading-snug text-bone md:text-3xl">
-            Honest and straightforward cut: 40% lower than 99% of the agencies.
-          </p>
-
-          <p className="font-display mt-8 text-xl italic leading-snug text-bone/60 md:text-2xl">
+          <p className="font-display mt-10 text-2xl italic leading-snug text-bone/60">
             <span className="sr-only">Who we work with: </span>
             {audiences.join(", ")}.
           </p>
