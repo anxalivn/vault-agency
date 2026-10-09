@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { navLinks, site } from "@/lib/content";
 import { getLenis } from "@/lib/lenis";
 
@@ -11,7 +11,6 @@ const focusRing =
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
-  const reduced = useReducedMotion();
 
   // Slides away while you read downward, comes back the moment you scroll up.
   useEffect(() => {
@@ -102,10 +101,10 @@ export default function Navbar() {
         {open && (
           <motion.div
             id="mobile-menu"
-            initial={{ clipPath: reduced ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
-            exit={{ clipPath: reduced ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
-            transition={{ duration: reduced ? 0 : 0.6, ease: [0.76, 0, 0.24, 1] }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
             data-lenis-prevent
             className="fixed inset-0 z-[45] flex flex-col justify-end overflow-y-auto overscroll-contain bg-ink px-6 pb-10 pt-28 md:hidden"
           >

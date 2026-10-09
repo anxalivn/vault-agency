@@ -7,12 +7,6 @@ import { setLenis } from "@/lib/lenis";
 
 export default function SmoothScrollProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) return;
-
     const lenis = new Lenis({
       lerp: 0.12,
       smoothWheel: true,

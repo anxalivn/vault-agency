@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode, type ComponentPropsWithoutRef, type MouseEvent } from "react";
+import { useRef, type ReactNode, type ComponentPropsWithoutRef, type MouseEvent } from "react";
 import Link from "next/link";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import clsx from "clsx";
 
 interface MagneticButtonProps extends ComponentPropsWithoutRef<"a"> {
@@ -24,14 +24,8 @@ export default function MagneticButton({
   ...props
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement>(null);
-  const reducedMotionRef = useRef(false);
-
-  useEffect(() => {
-    reducedMotionRef.current = prefersReducedMotion();
-  }, []);
 
   const handleMove = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (reducedMotionRef.current) return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -41,7 +35,6 @@ export default function MagneticButton({
   };
 
   const handleLeave = () => {
-    if (reducedMotionRef.current) return;
     const el = ref.current;
     if (!el) return;
     gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.4)" });

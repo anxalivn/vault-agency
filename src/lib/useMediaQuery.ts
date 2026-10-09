@@ -8,9 +8,9 @@ function subscribe(query: string, callback: () => void) {
   return () => mql.removeEventListener("change", callback);
 }
 
-// Reads a media query as live, external browser state (pointer type, reduced-motion
-// preference) via useSyncExternalStore instead of matchMedia + setState-in-effect,
-// so it reacts to the user changing the preference mid-session and never needs a
+// Reads a media query as live, external browser state (pointer type)
+// via useSyncExternalStore instead of matchMedia + setState-in-effect,
+// so it reacts to the value changing mid-session and never needs a
 // mount-only effect just to read a boolean.
 export function useMediaQuery(query: string): boolean {
   return useSyncExternalStore(
