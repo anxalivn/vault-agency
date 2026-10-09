@@ -8,11 +8,10 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const isFinePointer = useMediaQuery("(pointer: fine)");
-  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   // The dot/ring only mount — and the native cursor is only hidden — once we've confirmed
-  // a fine pointer and no reduced-motion preference. Both start `false` on the server and
-  // on first client render (matching), so there's no hydration mismatch.
-  const active = isFinePointer && !reducedMotion;
+  // a fine pointer. It starts `false` on the server and on first client render (matching),
+  // so there's no hydration mismatch.
+  const active = isFinePointer;
 
   useEffect(() => {
     if (!active) return;

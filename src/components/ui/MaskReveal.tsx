@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 interface MaskRevealProps {
   children: ReactNode;
@@ -16,7 +16,7 @@ export default function MaskReveal({ children, className = "", from = "left" }: 
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || prefersReducedMotion()) return;
+    if (!el) return;
     const hidden = from === "left" ? "inset(0 100% 0 0)" : "inset(100% 0 0 0)";
     const ctx = gsap.context(() => {
       gsap.fromTo(

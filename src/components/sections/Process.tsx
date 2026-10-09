@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import RevealText from "@/components/ui/RevealText";
 import { processSteps } from "@/lib/content";
 
@@ -15,11 +15,6 @@ export default function Process() {
     const list = listRef.current;
     if (!list) return;
     const numerals = list.querySelectorAll<HTMLElement>("[data-numeral]");
-
-    if (prefersReducedMotion()) {
-      numerals.forEach((n) => (n.style.color = n.dataset.fill ?? ""));
-      return;
-    }
 
     const ctx = gsap.context(() => {
       numerals.forEach((n) => {

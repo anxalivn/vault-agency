@@ -1,24 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import Counter from "@/components/ui/Counter";
-import { useMediaQuery } from "@/lib/useMediaQuery";
 import { stats } from "@/lib/content";
 
 export default function StatsBand() {
   const sectionRef = useRef<HTMLElement>(null);
   const slabRef = useRef<HTMLDivElement>(null);
   const [lead, ...rest] = stats;
-  const [scrubbed, setHours] = useState(0);
-  const reduced = useMediaQuery("(prefers-reduced-motion: reduce)");
-  const hours = reduced ? lead.value : scrubbed;
+  const [hours, setHours] = useState(0);
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
-      gsap.set(slabRef.current, { clipPath: "inset(0 0% 0 0)" });
-      return;
-    }
     const ctx = gsap.context(() => {
       // The slab opens like the hero's wipe, then the hours accrue as you scroll through it:
       // the number answers "how long are we on?" by actually running up the clock.

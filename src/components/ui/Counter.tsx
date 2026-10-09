@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "@/lib/gsap";
-import { useMediaQuery } from "@/lib/useMediaQuery";
 
 interface CounterProps {
   value: number;
@@ -13,11 +12,10 @@ interface CounterProps {
 export default function Counter({ value, suffix = "", className = "" }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(0);
-  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reducedMotion) return;
+    if (!el) return;
 
     const obj = { val: 0 };
 
@@ -36,11 +34,11 @@ export default function Counter({ value, suffix = "", className = "" }: CounterP
     }, el);
 
     return () => ctx.revert();
-  }, [value, reducedMotion]);
+  }, [value]);
 
   return (
     <span ref={ref} className={className}>
-      {reducedMotion ? value : display}
+      {display}
       {suffix}
     </span>
   );

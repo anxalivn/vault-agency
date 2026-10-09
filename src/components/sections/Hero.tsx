@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { site } from "@/lib/content";
 
 export default function Hero() {
@@ -16,13 +16,6 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const lines = headlineRef.current?.querySelectorAll<HTMLElement>(".reveal-inner");
-
-      if (prefersReducedMotion()) {
-        // Final composition, no motion: slab already covering, everything visible.
-        gsap.set(slabRef.current, { clipPath: "inset(0 0% 0 0)" });
-        gsap.set(coverTextRef.current, { color: "#000000" });
-        return;
-      }
 
       // The headline says "cover": lines rise out of their masks, then a blush slab
       // wipes across "the rest." and the type flips to black as it passes under.

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ElementType, type Ref } from "react";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 interface RevealTextProps {
   children: string;
@@ -29,10 +29,6 @@ export default function RevealText({
     const targets = el.querySelectorAll<HTMLElement>(".reveal-inner");
 
     const ctx = gsap.context(() => {
-      if (prefersReducedMotion()) {
-        gsap.set(targets, { yPercent: 0, opacity: 1 });
-        return;
-      }
       gsap.fromTo(
         targets,
         { yPercent: 110, opacity: 0 },
